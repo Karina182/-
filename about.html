@@ -186,25 +186,23 @@
         .achievements li strong { color: #ffffff; }
         .achievements li::before { content: "✦ "; color: var(--accent); font-weight: bold; }
         
-        /* Красивый и компактный адаптивный контейнер для видео */
-        .video-container {
-            width: 100%;
-            max-width: 640px;
+        /* Идеально сбалансированный блок для видео на ПК и телефонах */
+        .video-wrapper {
+            max-width: 480px; /* Ограничивает ширину на компьютере, чтобы видео не выглядело огромным */
             margin: 35px auto;
-            border-radius: 22px;
-            overflow: hidden;
-            border: 1px solid var(--border-color);
-            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
             background: var(--card-bg);
-            padding: 12px;
-            backdrop-filter: blur(12px);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 16px;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+            backdrop-filter: blur(14px);
+            text-align: center;
         }
-        .video-container video {
+        .video-wrapper video {
             width: 100%;
-            height: auto;
-            max-height: 400px;
+            max-height: 520px;
+            border-radius: 16px;
             display: block;
-            border-radius: 14px;
             object-fit: contain;
             background: #000;
         }
@@ -265,7 +263,8 @@
             .container { width: min(100% - 24px, 100%); padding: 25px 12px; }
             .profile-header h1 { font-size: 1.8rem !important; }
             .section-title { font-size: 1.45rem !important; }
-            .project-card, .achievements, .video-container { padding: 16px 12px; }
+            .project-card, .achievements, .video-wrapper { padding: 16px 12px; }
+            .video-wrapper { max-width: 100%; } /* На телефоне видео занимает всю ширину экрана */
         }
     </style>
 </head>
@@ -350,8 +349,8 @@
             </div>
         </div>
 
-        <!-- Улучшенный адаптивный блок с видео VID.MOV -->
-        <div class="video-container">
+        <!-- Красивый адаптивный блок с видео -->
+        <div class="video-wrapper">
             <video controls playsinline preload="metadata">
                 <source src="VID.MOV" type="video/quicktime">
                 <source src="VID.MOV" type="video/mp4">
